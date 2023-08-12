@@ -1,0 +1,24 @@
+\babel@toc {american}{}\relax 
+\vspace {-\cftbeforepartskip }
+\babel@toc {italian}{}\relax 
+\contentsline {part}{\numberline {i}\spacedlowsmallcaps {Introduzione}}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}\spacedlowsmallcaps {Equazioni conservative del moto}}{3}{chapter.1}%
+\contentsline {paragraph}{Approccio Lagrangiano}{3}{chapter.1}%
+\contentsline {paragraph}{Approccio Euleriano}{3}{Item.2}%
+\contentsline {section}{\numberline {1.1}Particelle di un fluido}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Derivate totali}{4}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Conservazione della massa}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Funzione di flusso}{6}{subsection.1.2.1}%
+\contentsline {paragraph}{Considerazioni}{7}{equation.1.2.11}%
+\contentsline {section}{\numberline {1.3}Conservazione del momento}{8}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Equazione di Cauchy}{8}{subsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.1}Fluidi newtoniani}{8}{subsubsection.1.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.2}Fluidi non newtoniani}{9}{subsubsection.1.3.1.2}%
+\contentsline {subsection}{\numberline {1.3.2}Equazione di Navier-Sockes}{9}{subsection.1.3.2}%
+\contentsline {part}{\numberline {ii}\spacedlowsmallcaps {Appendix}}{11}{part.2}%
+\contentsline {chapter}{\numberline {A}\spacedlowsmallcaps {Appendix Test}}{13}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Appendix Section Test}{13}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Another Appendix Section Test}{13}{section.Alph1.2}%
+\vspace {\beforebibskip }
+\contentsline {chapter}{\spacedlowsmallcaps {Bibliografia}}{15}{dummy.7}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
