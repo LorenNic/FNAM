@@ -150,7 +150,7 @@ A partire dalla similitudine dei triangoli vale che (Vedi figura \ref{fig:Stream
 \frac{dr}{V} = \frac{dx}{V_x} = \frac{dy}{V_y}
 \label{eqn:SimTriangoli}
 \end{equation}
-Dalla \eqref{eqn:SimTriangoli} vale: $V_x dy = V_x dy$.
+Dalla \eqref{eqn:SimTriangoli} vale: $V_x dy = V_y dx$.
 Sostituendo con la definizione della \eqref{eqn:CambioVar}, può essere scritta la:
 \begin{equation}
 \frac{\partial \Psi}{\partial y} dy + \frac{\partial \Psi}{\partial x} dx = 0
@@ -187,8 +187,8 @@ Allora, per un fluido incomprimibile assisimmetrico (c'è simmetria nella rotazi
 Al di là della definizione di \eng{streamline} in qualsiasi sistema di riferimento, grazie all'osservazione di queste si può tracciare le linee di corrente soddisfacenti la conservazione della massa, permettendo di descrivere l'andamento del flusso all'interno del volume.
 Vale anche:
 \begin{description}
-\item[\eng{streamlines} divergenti] $\Rightarrow$ velocità di flusso maggiore $\Rightarrow$ accelerazione delle particelle o flusso.
-\item[\eng{streamlines} convergenti] $\Rightarrow$ Velocità di flusso minore $\Rightarrow$ decelerazione delle particelle o flusso.
+\item[\eng{streamlines} divergenti] $\Rightarrow$ velocità di flusso minore $\Rightarrow$ decelerazione delle particelle o flusso.
+\item[\eng{streamlines} convergenti] $\Rightarrow$ Velocità di flusso maggiore $\Rightarrow$ accelerazione delle particelle o flusso.
 \end{description}
 
 \section{Conservazione del momento}
@@ -196,7 +196,7 @@ Per la trattazione della conservazione del momento da parte delle particelle di 
 
 \subsection{Equazione di Cauchy}
 \begin{equation}
-\rho \frac{D\mathbf{V}}{Dt} = \rho \vec{g} + \nabla \cdot \boldsymbol{\sigma}
+\rho \frac{D\mathbf{V}}{Dt} = \rho \mathbf{g} + \nabla \cdot \boldsymbol{\sigma}
 \label{eqn:Cauchy}
 \end{equation}
 Dove viene definito $\boldsymbol{\sigma}$ come \textbf{Cauchy stress tensor}:
@@ -217,7 +217,7 @@ Che scritto in forma matriciale diventa:
 -p & 0 & 0 \\
 0 & -p & 0 \\
 0 & 0 & -p
-\end{bmatrix}}_{\text{parte isotropica di } \boldsymbol{\sigma}} +%
+\end{bmatrix}}_{\text{parte isotropa di } \boldsymbol{\sigma}} +%
 \underbrace{%
 \begin{bmatrix}
 \tau_{xx} & \tau_{xy} & \tau_{xz} \\
@@ -278,4 +278,160 @@ La quale può essere semplificata nel caso sussistano determinate condizioni:
 \end{equation}
 \end{description}
 Si definisce un fluido non viscido nel momento in cui le forze viscose sono trascurabili rispetto alle forze d'inerzia, gravitazionali e di pressione.
-Ad esempio lo sono le zone del fluido ad alto numero di Reynolds.
+Ad esempio lo sono le zone del fluido ad alto numero di \eng{Reynolds}.
+
+I termini viscosi non sono trascurabili rispetto a quelli di inerzia nello strato limite in prossimità di un corpo immerso nel fluido. Ciò è dovuto ai forti gradienti di velocità presenti nello strato.
+
+\paragraph{Fluido incomprimibile}
+\begin{equation}
+\rho \frac{D\mathbf{V}}{Dt} = \rho \mathbf{g} - \nabla p + \mu \nabla^2\mathbf{V}
+\end{equation}
+Si nota che il termine di pressione appare solo in forma di gradiente:
+\begin{quote}
+\textit{Il campo di velocità in un fluido incomprimibile non è affetto dalla pressione assoluta, bensì solo dalle differenze di pressione.}
+\end{quote}
+Eventuali modifiche alla pressione assoluta devono essere poste come condizioni al contorno del sistema.
+
+Si può calcolare il campo di pressione con una costante arbitraria, ma per ottenere quella costante bisogna sapere il valore della pressione in qualche punto del fluido.
+In altre parole, bisogna conoscere la pressione assoluta o totale come condizione al contorno.
+
+Tutto ciò resta valido fin tanto che il fluido è incomprimibile, per fluidi comprimibili la pressione $p$ non è la pressione meccanica (forza/area) ma la pressione termodinamica $P$. In questo caso la pressione è funzione della temperatura e densità nell'equazione di stato del fluido.
+
+\paragraph{Flusso Euleriano}
+\begin{equation}
+\rho \frac{D\mathbf{V}}{Dt} = \rho \mathbf{g} - \nabla p + \mu \nabla^2\mathbf{V}
+\end{equation}
+In questo caso esistono delle regioni non viscide del fluido che possono essere trascurate per la maggior parte del fluido. Non devono essere ignorate sempre.
+Dato ciò si può assumere:
+\begin{equation}
+\underbrace{\tau}_{\text{sforzo viscoso}} \approx \underbrace{\mu}_{\text{viscosità}} \times \underbrace{\frac{\partial V_i}{\partial x_i}}_{\text{gradiente di velocità}}
+\end{equation}
+\begin{quote}
+\textit{I termini viscosi non sono trascurabili in presenza di forti variazioni del gradiente di velocità (strato limite, scia del corpo, \dots).}
+\end{quote}
+
+La figura \ref{fig:EulerianEquation} mostra un caso dove può essere applicata l'equazione di Eulero e dove no.
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.7\textwidth]{gfx/EulerianEquation}
+\caption{Osservazione dove l'equazione di Eulero è valida e non.}
+\label{fig:EulerianEquation}
+\end{figure}
+
+\subsection{Equazione di Bernoulli}
+La somma della pressione, dell'energia cinetica e potenziale delle particelle di un fluido è costante lungo la \eng{streamline} nel caso di un flusso stazionario quando i termini di comprimibilità e viscosità sono trascurabili:
+\begin{equation}
+\frac{p}{\rho} + \frac{V^2}{2}+gz = cost.
+\label{eqn:Bernoulli}
+\end{equation}
+Da notare che la costante di Bernoulli può cambiare tra diverse \eng{streamlines} ma è costante nella singola.
+Nel flusso stazionario incomprimibile con effetti viscosi trascurabili, le varie forme di energia vengono trasformate ma la loro somma resta costante. Non c'è dissipazione di energia meccanica lungo il flusso.
+L'equazione di Bernoulli è una relazione approssimativa tra pressione, velocità ed elevazione; resta valida solamente nelle regioni non viscide del fluido.
+
+\paragraph{Pressione modificata}
+Gli effetti della gravità sono rilevanti solamente su flussi a superficie libera: ad esempio onde, moto di una nave. e per flussi guidati dalle condizioni a contorno come il moto per convezione naturale.
+
+Per flussi incomprimibili, senza superfici libere, la gravità non modifica la dinamica del flusso. Il suo effetto sarà di imporre una pressione idrostatica distribuita nella direzione verticale rispetto al campo di pressione del fluido.
+Si può definire una pressione modificata $p'$ che assorbe l'effetto della pressione idrostatica apportata dalla gravità. In questo caso, con l'asse $z$ diretto in opposizione rispetto a $\mathbf{g}$ e, definito un riferimento nullo sull'asse $z$ allora:
+\begin{equation}
+p' = p + \rho g z \Rightarrow \rho \frac{D\mathbf{V}}{Dt} = \nabla p' + \mu \nabla^2\mathbf{V}
+\end{equation}
+Il vantaggio di calcolare secondo l'equazione di Navier-Stockes è che non include il termine gravitazionale. Dopo la risoluzione con quella equazione, in termini di $p'$ è semplice tornare alla pressione senza contributo idrostatico $p = p' - \rho g z$
+
+La pressione modificata è spesso usata nelle analisi \ac{CFD} per separare gli effetti gravitazionali da quelli del fluido.
+La pressione modificata non deve essere usata in flussi con superfici libere.
+
+\section{Conservazione dell'energia}
+Per analizzare iun fluido in termini energetici conviene visualizzare l'equazione dell'entalpia totale.
+
+\subsection{Equazione dell'entalpia totale}
+\begin{equation}
+\rho \frac{Dh_0}{Dt} = \rho \mathbf{g} \cdot \mathbf{V} + \frac{\partial p}{\partial t} + \nabla \cdot (k \nabla T) + q_g + \nabla \cdot (\boldsymbol{\tau} \cdot \mathbf{V})
+\label{eqn:TotalEnthalpy}
+\end{equation}
+Dove:\\
+\begin{tabular}{cl}
+$q_g$ & rappresenta il calore generato internamente dal sistema\\
+$\nabla \cdot (\boldsymbol{\tau} \cdot \mathbf{V})$ & rappresenta il lavoro fatto dallo sforzo viscoso
+\end{tabular}\\
+Da cui ne derivano:
+\begin{description}
+\item[Equazione dell'entalpia] da non confondere con quella totale
+\begin{equation}
+\rho \frac{Dh}{Dt} = \frac{Dp}{Dt} + \nabla \cdot (k \nabla T) + q_g + \underbrace{\boldsymbol{\tau} \cdot \nabla \mathbf{V}}_{= \Phi}
+\end{equation}
+\item[Equazione entropia]
+\begin{equation}
+\rho T \frac{Ds}{Dt} = \nabla \cdot (k \nabla T) + q_g + \underbrace{\boldsymbol{\tau} \cdot \nabla \mathbf{V}}_{= \Phi}
+\end{equation}
+\end{description}
+La dissipazione dovuta agli attriti viscosi $\Psi$ rappresenta l'ammontare del lavoro fatto dagli sforzi viscosi. Il quale viene convertito in calore il quale processo è irreversibile. Da cui una fonte di calore irreversibile.
+L'effetto della dissipazione viscosa nello scambio termico è particolarmente significativa per fluidi ad alta velocità e altamente viscosi. 
+
+Dalla \eqref{eqn:TotalEnthalpy} i parametri sono indicati come:\\
+\begin{tabular}{cp{0.8\textwidth}}
+$\rho \mathbf{g} \cdot \mathbf{V}$ & Lavoro fatto dalle forse del corpo\\
+$\frac{\partial p}{\partial t}$ & Influenza della pressione nell'entalpia totale\\
+$\nabla \cdot (k\nabla T)$ & Quantità di energia trasferita per conduzione dal corpo al volume di controllo\\
+$q_g$ & Calore generato da una fonte interna\\
+$\nabla \cdot (\boldsymbol{\tau} \cdot \mathbf{V})$ & Lavoro degli effetti viscosi 
+\end{tabular}
+
+Da cui si può ricavare l'equazione dell'entalpia statica.
+
+\subsection{Equazione dell'entalpia statica}
+\begin{equation}
+\rho \frac{Dh}{Dt} = \frac{Dp}{Dt} + \nabla \cdot (k \nabla T) + q_g + \boldsymbol{\tau} \cdot \nabla \mathbf{V}
+\label{eqn:StaticEnthalpy}
+\end{equation}
+L'equazione data come entalpia totale descrive i cambiamenti, in termini termici e meccanici, dell'energia.
+Il termine dinamico dell'entalpia totale \eqref{eqn:TotalEnthalpy} può essere sottratto e l'equazione \eqref{eqn:StaticEnthalpy} è descritta per ottenere un'equazione per valutare il cambiamento dei parametri termodinamici dell'energia termica e entalpia.
+Sotto alcune ipotesi, può essere utilizzata per descrivere un fluido poco comprimibile, quando la comprimibilità del flusso è comunque bassa. 
+
+\section{Equazioni di stato}
+Il moto del fluido è descritto da cinque equazioni differenziali parziali per la descrizione della: massa, momento ed energia.
+I parametri termodinamici da ricercare in queste equazioni sono: $\rho$, $p$, $h$ e $T$.
+Assumeremo l'equilibrio termodinamico: ovvero che il tempo necessario alle particelle per adeguarsi a nuove condizioni di contorno sia corto rispetto alle caratteristiche temporali del fluido.
+Dobbiamo aggiungere due equazioni di stato usando due variabili: $p = p(\rho, T)$, $h = h(p, T)$.
+
+\subsection{Equazione di stato per un fluido incomprimibile}
+\begin{equation}
+\rho = cost.
+\end{equation}
+Valida per liquidi e buona approssimazione per gas a bassa velocità.
+
+Si può assumere che il flusso sia incomprimibile a patto che la massima compressione sia al di sotto del $5\%$. Ciò implica che la velocità del gas sia inferiore al numero di Mach $ Ma \lesssim 0.3$
+Non c'è collegamento tra l'equazione dell'energia e le equazioni di massa e momento. Si risolve l'equazione di energia solo in caso di trasferimento di calore.
+Il campo di velocità non è affetto dal valore assoluto della pressione ma solo dal gradiente.
+Per i flussi comprimibili, la pressione è legata con la densità e temperatura attraverso un'equazione di stato e allora il valore della pressione assoluta. Un flusso comprimibile richiede una soluzione non solo di massa e momento, anche di energia e un'equazione di stato.
+
+\subsection{Equazione di stato del gas ideale}
+\begin{equation}
+p = \rho R T
+\label{eqn:IdealGas}
+\end{equation}
+Il fattore di comprimibilità $Z = \frac{p}{\rho R T}$ la cui variazione da una buona misura dell'applicabilità dell'equazione \eqref{eqn:IdealGas}.
+
+\subsection{Equazioni del gas reale}
+Per descrivere l'andamento di un gas reale esistono diversi modelli, descritti nel tempo.
+Hanno una forma simile a quella del gas ideale \eqref{eqn:IdealGas} ma con degli aggiustamenti ai coefficienti per poter modellizzare correttamente il funzionamento di uno specifico gas.
+In letteratura si trovano articoli che descrivono quale modello rappresenta meglio un dato gas.
+
+\section{Equazioni costitutive}
+Alcuni parametri sono determinati da equazioni costitutive, in funzione di diversi parametri termodinamici.
+Ad esempio la viscosità, dipende fortemente dalla temperatura.
+Per diversi casi vengono definite le loro equazioni costitutive in modo che si possa determinare il valore del parametro per ogni caso.
+
+\section{Condizioni al contorno}
+In qualsiasi punto su un limite formato da una superficie solida impermeabile, la continuità richiede che la componente normale della velocità alla superficie sia la stessa per il fluido che per la superficie.
+Se un limite solido è stazionario, quindi la posizione della superficie non cambia nel tempo e, definito $\mathbf{n}$ come normale alla superficie, allora:
+\begin{equation}
+\mathbf{u} \cdot \mathbf{n} = 0 
+\end{equation}
+sulla superficie.
+Per una fluido reale e viscoso, c'è una condizione addizionale sulla velocità tangenziale alla superficie. La condizione alla superficie per un fluido viscoso è che non può esserci velocità tangenziale relativa tra la superficie e il fluido.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Flussi rotazionali e irrotazionali}\label{chp:RotIrrotFlow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
