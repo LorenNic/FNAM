@@ -272,9 +272,10 @@ La quale può essere semplificata nel caso sussistano determinate condizioni:
 \begin{equation}
 \rho \frac{D\mathbf{V}}{Dt} = \rho \mathbf{g} - \nabla p + \mu \nabla^2\mathbf{V}
 \end{equation}
-\item[Fluido non viscido] si semplifica fino a:
+\item[Fluido non viscido] si semplifica fino a (Equazione di Eulero):
 \begin{equation}
 \rho \frac{D\mathbf{V}}{Dt} = \rho \mathbf{g} - \nabla p
+\label{eqn:Eulero}
 \end{equation}
 \end{description}
 Si definisce un fluido non viscido nel momento in cui le forze viscose sono trascurabili rispetto alle forze d'inerzia, gravitazionali e di pressione.
@@ -435,3 +436,345 @@ Per una fluido reale e viscoso, c'è una condizione addizionale sulla velocità 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Flussi rotazionali e irrotazionali}\label{chp:RotIrrotFlow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tipologie, movimenti e deformazioni di elementi fluidi}
+Un elemento di un fluido può essere sottoposto a quattro tipologie di movimento e deformazione:
+\begin{enumerate}
+\item traslazione
+\item rotazione
+\item sforzo lineare
+\item sforzo di taglio
+\end{enumerate}
+Siccome abbiamo necessità di descrivere gli elementi in movimento allora le misure che più ci interessano sono (rispettivamente):
+\begin{enumerate}
+\item Velocità
+\item velocità angolare
+\item sforzo lineare
+\item sforzo di taglio
+\end{enumerate}
+Con l'obbiettivo di calcolare le caratteristiche del fluido è necessario che questi parametri siano in funzione della velocità o delle sue derivate.
+Per esempio:
+\begin{description}
+\item[Vettore velocità]
+\begin{equation}
+\mathbf{V} = V_x \mathbf{i} + V_y \mathbf{j} + V_z \mathbf{k}
+\end{equation}
+\item[Vettore velocità angolare]
+\begin{equation}
+\vec{\omega} = \omega_x \vec{i} + \omega_y \vec{j} + \omega_z \vec{z}\\
+\end{equation}
+\item[Stress lineare]
+\begin{equation}
+\epsilon_{xx} = \frac{\partial V_x}{\partial x} \quad \epsilon_{yy} = \frac{\partial V_y}{\partial y} \quad \epsilon_{zz} = \frac{\partial V_z}{\partial z}
+\end{equation}
+\item[Sforzo di taglio]
+\begin{equation}
+\epsilon_{xy} = \frac{1}{2}\left(\frac{\partial V_x}{\partial y} + \frac{\partial V_y}{\partial x}\right) \quad \epsilon_{xz} = \frac{1}{2}\left(\frac{\partial V_z}{\partial x} + \frac{\partial V_x}{\partial z}\right) \quad \epsilon_{yz} = \frac{1}{2}\left(\frac{\partial V_y}{\partial z} + \frac{\partial V_y}{\partial z}\right)
+\end{equation}
+\end{description}
+Da cui è possibile ottenere la matrice dello sforzo totale, in coordinate cartesiane:
+\begin{equation}
+\vec{\epsilon} =%
+\begin{bmatrix}
+\epsilon_{xx} & \epsilon_{xy} & \epsilon_{xz}\\
+\epsilon_{yx} & \epsilon_{yy} & \epsilon_{yz}\\
+\epsilon_{zx} & \epsilon_{zy} & \epsilon_{zz}
+\end{bmatrix}%
+=%
+\begin{bmatrix}
+\frac{\partial V_x}{\partial x} & \frac{1}{2}\left(\frac{\partial V_x}{\partial y} + \frac{\partial V_y}{\partial x}\right) & \frac{1}{2}\left(\frac{\partial V_z}{\partial x} + \frac{\partial V_x}{\partial z}\right)\\
+\frac{1}{2}\left(\frac{\partial V_x}{\partial y} + \frac{\partial V_y}{\partial x}\right) & \frac{\partial V_y}{\partial y} & \frac{1}{2}\left(\frac{\partial V_y}{\partial z} + \frac{\partial V_y}{\partial z}\right)\\
+\frac{1}{2}\left(\frac{\partial V_z}{\partial x} + \frac{\partial V_x}{\partial z}\right) & \frac{1}{2}\left(\frac{\partial V_y}{\partial z} + \frac{\partial V_y}{\partial z}\right) & \frac{\partial V_z}{\partial z}
+\end{bmatrix}
+\end{equation}
+
+\paragraph{Deformazione volumetrica}
+Gli sforzi appena evidenziati non sono gli unici possibili per un fluido.
+Ad esempio per diverse applicazioni è molto più importante la deformazione volumetrica.
+Può essere espressa come:
+\begin{equation}
+\frac{1}{dN} \frac{D}{Dt} (dN) = \underbrace{\frac{\partial V_x}{\partial x} + \frac{\partial V_y}{\partial y} + \frac{\partial V_z}{\partial z}}_{= \nabla \cdot \vec{V}}
+\end{equation}
+Da cui si ricavano diverse casistiche:
+\begin{description}
+\item[Flusso incomprimibile] resta costante l'ammontare di volume netto: ciò indica che tanto si modifica il fluido in una direzione, tanto si deve stringere in altre direzioni per compensare.
+\item[Flusso comprimibile] si modifica il parametro $dN$ in funzione dell'aumento o diminuzione della densità. 
+\end{description}
+
+\section{Vorticità e rotazionalità}
+Si dice che un vettore è vorticoso nel caso: $\vec{\Omega} = \nabla \times \vec{V}$. Il rotore di una particella di dimostra essere doppia rispetto alla velocità di rotazione della stessa.
+Il \textbf{rotore} è una misura dell'ammontare locale della rotazione del fluido.
+Se $\vec{\Omega} \neq 0$ in una regione del fluido, allora le particelle stanno ruotando e il fluido in quella regione è detto rotazionale.
+Se $\vec{\Omega} = 0$ 0 $\vec{\Omega} \approx 0$ allora la regione del fluido è detta irrotazionale.
+
+La rotazione del fluido è spesso associata allo strato limite, scie, flusso attraverso turbomacchine e flusso con trasferimento di calore.
+
+Il rotore di un fluido non può cambiare ameno di effetti della viscosità, gradienti di temperatura e altri fenomeni non-lineari.
+Se un fluido origina in una regione irrotazionale, questo rimarrà irrotazionale fin tanto che qualche fenomeno non-uniforme ne altererà il comportamento.
+
+Se una ragione del fluido può essere considerata come irrotazionale (o è molto vicina ad esserlo) le equazioni di moto si semplificano notevolmente. Una regione irrotazionale la pressione e forze di inerzia sono più importanti di quelle per effetti viscosi (ordini di grandezze più alte).
+
+\section{Approssimazione a fluido irrotazionale}
+L'approssimazione che una regione di fluido sia irrotazionale può andare bene per alcune regioni e non per altre.
+In generale, regioni non viscide del flusso distanti da pareti solide e scie di altri corpi, sono considerabili irrotazionali; anche se ci sono delle situazioni per cui una regione non viscida potrebbe essere rotazionale.
+Riprendendo l'esempio della figura \ref{fig:EulerianEquation} a pagina \pageref{fig:EulerianEquation}, le regioni lontane dal profilo alare possono essere considerate come irrotazionali. Strato limite e scia sono, invece, rotazionali.
+Nelle regioni di flusso irrotazionali il vettore velocità può essere descritto come gradiente di una funzione scalare detta \textbf{velocità potenziale}.
+\begin{equation}
+\vec{V} = \nabla \phi
+\end{equation}
+resta valido:
+\begin{equation}
+\vec{\Omega} = \nabla \times \vec{V} \Rightarrow \nabla \times \nabla \phi = 0
+\end{equation}
+Le regioni irrotazionali sono anche dette regioni a flusso potenziale.
+
+\subsection{Equazione di Laplace}
+In coordinate cartesiane:
+\begin{equation}
+V_x = \frac{\partial \phi}{\partial x} \quad V_y = \frac{\partial \phi}{\partial y} \quad V_z = \frac{\partial \phi}{\partial z}
+\end{equation}
+In coordinate cilindriche:
+\begin{equation}
+V_r = \frac{\partial \phi}{\partial r} \quad V_{\theta} = \frac{\partial \phi}{\partial \theta} \quad V_z = \frac{\partial \phi}{\partial z}
+\end{equation}
+Che per un flusso incomprimibile e irrotazionale la velocità potenziale soddisfa l'equazione di Laplace ($\phi$ è una funzione armonica): 
+\begin{equation}
+\nabla^2\phi = 0
+\end{equation}
+Portata nelle coordinate cartesiane:
+\begin{equation}
+\frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial z^2} = 0 
+\end{equation}
+Le soluzioni dell'equazione di Laplace sono dominate dalla geometria (ad esempio condizioni al contorno) ì. Le tre componenti del vettore velocità sono combinati in una singola variabile $\phi$. Il problema è caratterizzato solamente da due variabili: $\phi$ e $p$.
+
+\paragraph{Riassumendo:}
+L'equazione di Laplace è fprtemente caratterizzata dalla geometria e:
+\begin{itemize}
+\item La conservazione della massa è sempre soddisfatta
+\item Non c'è dipendenza dal tempo
+\end{itemize}
+Perciò: l'equazione è rappresentativa dei fenomeni transitori e la soluzione ottenuta tramite l'equazione è legata solamente alla condizione al contorno.
+
+Dunque: per flussi incomprimibili e irrotazionali, la soluzione deve soddisfare solamente la condizione al contorno.
+
+\subsection{Equazione di Eulero}
+Riprendendo l'equazione di Navier-Stockes \eqref{eqn:NavierStockes} ridotta alle condizioni di incomprimibilità e irrotazionalità, ottenendo l'equazione di Eulero:
+\begin{equation}
+\rho \frac{D\vec{V}}{Dt} = \rho\vec{g} - \nabla p
+\label{eqn:EulerianEquation}
+\end{equation}
+Nonostante sia la stessa equazione \eqref{eqn:Eulero} a pagina \pageref{eqn:Eulero}, descritta a partire da Navier-Stockes per le regioni di fluido non viscide.
+In questo caso i termini viscosi spariscono perché il flusso è assunto come irrotazionale invece di non viscido.
+Tutte le regioni irrotazionali di un flusso sono anche non viscide, ma non tutte le regioni non viscide sono irrotazionali.
+
+Per una regione non viscida di flusso, l'equazione di Bernoulli vale lungo le \eng{streamlines} e la costante di Bernoulli può cambiare da una \eng{streamline} all'altra.
+Nel caso di un flusso irrotazionale la costante di Bernoulli è sempre la stessa ovunque. Perciò sempre valida come equazione.
+L'approssimazione di flusso rotazionale è più restrittiva dall'ipotesi di flusso non viscido.
+
+\section*{\eng{Workflow}}
+un flusso irrotazionale può essere risolto tramite il seguente flusso di lavoro come quello in figura \ref{fig:IrrotationalFlow}.
+
+\begin{figure}
+\centering
+\smartdiagramset{%
+uniform sequence color= true,
+uniform color list=DE for 3 items
+%sequence item text color=white
+}
+\smartdiagram[descriptive diagram]{%
+{$\phi$, {calcolata dalla continuità $\nabla^2\phi = 0$}},
+{$\vec{V}$, {Calcolata dall'irrotazionalità $\vec{V} = \nabla\phi$}},
+{$P$, {da Bernoulli}},
+}
+\caption{Procedimento per la risoluzione di un flusso irrotazionale}
+\label{fig:IrrotationalFlow}
+\end{figure}
+Introducendo diverse semplificazioni è possibile semplificare l'equazione di Navier-Stockes. Tali semplificazioni non sono rappresentative delle effettive condizioni del flusso ma basate su osservazioni sperimentali.
+
+\section{Flusso rotazionale planare}
+Nel caso di un flusso incomprimibile irrotazionale e planare, l'equazione di Laplace non solo è soddisfatta dall'equazione della velocità potenziale ma anche dalle funzione di flusso.
+\graffito{La funzione di flusso è definita dalla continuità della massa e soddisfa l'equazione di Laplace sulla condizione di irrotazionalità.}
+In quel flusso le \eng{streamline} e le curve equipotenziale di velocità, \eng{equipotential lines}, sono mutualmente ortogonali ovvero mutuamente intersecanti a $90\unit{\degree}$.
+\graffito{La funzione velocità potenziale definita a partire dall'ipotesi di irrotazionalità, soddisfa anch'essa l'equazione di Lapalce}
+
+Lo stesso flusso può essere descritto in coordinate polari.
+Allora la funzione di flusso soddisfa comunque l'equazione di Laplace per regioni di flusso incomprimibile irrotazionale planare.
+
+Nel caso di un flusso incomprimibile, irrotazionale assisimmetrico senza vortici la funzione di flusso non soddisfa più l'equazione di Laplace.
+In questo caso, l'equazione di Laplace è soddisfatta solamente solo dalla funzione di velocità potenziale ma non da quella di flusso.
+In questo flusso le \eng{streamlines} e le \eng{equipotential lines} non sono mutuamente ortogonali.
+
+\section{Flussi vorticosi}
+In molte applicazioni, i flussi sono vorticosi. Ad esempio i bruciatori necessitano di un flusso vorticoso per poter lavorare correttamente.
+
+La categoria più semplice di vortice sono i vortici ad \textbf{equilibrio radiale semplice}. Definiti come:
+\begin{itemize}
+\item stazionari,
+\item assisimmetrici,
+\item Velocità radiale nulla ovunque.
+\end{itemize}
+Per un fluido incomprimibile, non viscido di questo tipo; le componenti di rotazione e assiale e pressione sono solo funzione del raggio e una componente significativa del momento angolare.
+\begin{equation}
+\frac{1}{\rho} \underbrace{\frac{dp}{dr}}_{\text{grad. pressione}} = \underbrace{\frac{V_{\theta}}{r}}_{\text{Velocità tangenziale}}
+\label{eqn:EqRadSemplice}
+\end{equation}
+
+L'equazione \eqref{eqn:EqRadSemplice} può essere integrata per trovare la distribuzione radiale della pressione.
+\begin{equation}
+\frac{p - p _{ref}}{\rho} = \int_{r_{ref}}^r{\frac{V^2_{\theta}}{r} dr}
+\end{equation}
+Da cui si ottiene il rotore.
+Un'importante caratteristica del flusso vorticoso è che contiene velocità assiale $\Omega_z$. Questo tipo di vortice rappresenta la maggior parte dei fluidi vorticosi di nostro interesse.
+
+Alcuni esempi di vortici ad equilibrio radiale sono:
+\begin{description}
+\item[Vortice libero] 
+\begin{equation}
+V_{\theta} = \frac{K}{r}
+\end{equation}
+Siccome risulta che attorno al raggio nullo la velocità dovrebbe essere infinita, allora si esclude la regione corrispondente.
+la vorticosità di questo vortice è identica a zero ovuque ad eccezione dell'origine che rappresenta una singolarità matematica.
+Dunque il flusso risulta irrotazionale ad eccezione dell'origine.
+\item[Vortice forzato]
+\begin{equation}
+V_{\theta} = \omega r
+\end{equation}
+In questo caso si ha un vortice rotazionale ovunque.
+\item[Vortice di \eng{Rankine}]
+\graffito{In pratica si ha il vortice forzato circondato dal vortice libero.}
+Deriva dal vortice libero con l'eccezione della regione attorno al raggio nullo.
+Dunque il vortice \eng{Rankine} assembla la rotazione di un corpo solido al \eng{free-vortex}.
+Ciò perché si può osservare che gli effetti viscosi limitano i gradienti di velocità attorno al raggio nullo, impedendogli di raggiungere velocità eccessive.
+\begin{equation}
+V_{\theta} =%
+\begin{cases}
+\omega r & r \leq a\\
+\frac{\omega a^2}{r} & r > a
+\end{cases} \quad
+V_z = %
+\begin{cases}
+V_z(r) & r\leq a\\
+V_{z_0} & r > a
+\end{cases}
+\end{equation}
+\item[Altri modelli] Esistono altri modelli di vortice che permettono di descrivere diversamente la zona centrale piuttosto di quella esterna e viceversa. Dipende ovviamente dal tipo di analisi da condurre con cui selezionare il modello di vortice più adatto per il caso.
+\end{description}
+
+\subsection{Influenza di elementi successivi}
+I flussi vorticosi presentano una marcata influenza in caso siano presenti delle variazioni di geometria dopo l'applicazione del vortice.
+Come si vede dalla figura \ref{fig:UpstreamInfluence}.
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/UpstreamInfluence}
+\caption{Effetti di variazioni successive della geometria per un flusso vorticoso in un bruciatore}
+\label{fig:UpstreamInfluence}
+\end{figure}
+
+La presenza di vortici in un passaggio divergente promuove l'esistenza di zone di ristagno e flusso inverso vicino all'asse di simmetria.
+Per esempio nelle turbine a gas, questo tipo di ricircolo è incoraggiato per mantenere la stabilità della fiamma, garantendo la permanenza del fluido in una data regione per migliorare la combustione della miscela.
+
+Per caratterizzare il livello di vortice viene definito un numero $S_w$ che altro non è che il rapporto tra il momento angolare sul raggio per il flusso assiale del momento assiale.
+\begin{equation}
+S_w = \frac{\int_0^{r_0}{r^2 V_{\theta}V_z dr}}{r_0 \int_0^{r_0}{r \left[V_z^2 + \left(\frac{p - p_{max}}{\rho}\right) \right]dr}}
+\end{equation}
+In generale si assume che 
+\begin{description}
+\item[$S_w < 0.5$] vortice debole o moderato
+\item[$S_w > 0.5$] flusso vorticoso
+\end{description}
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/Swirl}
+\caption{Esempio di misure dei vortici per un bruciatore}
+\label{fig:Swirl}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Strato limite e flusso su corpi}\label{chp:BoundaryLayer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Il concetto di strato limite nell'equazione di Navier-Stockes \eqref{eqn:NavierStockes} a pagina \pageref{eqn:NavierStockes} si può trascurare:
+\begin{itemize}
+\item In regioni di flusso ad alto numero di Reynolds, dove le forze viscose possono essere trascurate rispetto a quelle d'inerzia e gravitazionali (regioni non viscose)
+\item Quando la vorticosità è trascurabilmente piccola da cui si ottiene l'equazione di Eulero \eqref{eqn:Eulero}.
+\end{itemize}
+Ci sono delle mancanze associate all'applicazione dell'equazione di Eulero in problemi pratici, in particolare l'impossibilità di descrivere condizioni di non scorrimento sulle pareti. Ne risulterebbe una descrizione irreale.
+
+\eng{Prandtl} introdusse il concetto di:
+\begin{enumerate}
+\item una regione esterna considerabile come non viscida e irrotazionale.
+\item uno strato limite dove il flusso deve essere considerato viscoso e rotazionale.
+\end{enumerate}
+Questo approccio permette di risolvere il flusso esterno considerandolo non viscido e irrotazionale, applicando l'equazione di Eulero.
+Dopodiché, si usano le \textbf{condizioni dello strato limite} per legare le due regioni.
+L'approssimazione dello strato limite corregge le differenze più evidenti delle equazioni di Eulero proponendo un metodo per marcare la condizione di non strisciamento sulla parete solida.
+
+Ad oggi, nella simulazione \ac{CFD} si può anche non usare tale condizione, visto che viene già considerata in altri modelli di risoluzione del fluido.
+
+\section{Spessore dello strato limite}
+\graffito{In una data posizione in $x$, il più alto numero di Reynolds $Re_x = \frac{\rho Vx}{\mu}$ il più fino è lo strato limite e più affidabile l'approssimazione dello strato limite.}
+Considerando un flusso libero ad una velocità $V$, che scorre parallelamente ad una piastra fina, semi-infinita allineata all'asse $x$.
+Allora lo spessore dello strato limite $\delta = \delta(x)$, per convezione è definita come la distanza dalla parete fino alla componente di velocità parallela alla parete al $99\%$ della velocità del flusso fuori dallo strato limite.
+
+Si può dimostrare che, per una lastra fina, infinitamente lunga:
+\begin{equation}
+\frac{\delta}{x} \approx \frac{1}{\sqrt{Re_x}} \Rightarrow \delta \approx \sqrt{x}
+\end{equation}
+\graffito{Nelle turbomacchine, il numero di Reynolds si attesta attorno a $10^5$, lo strato limite è molto più piccolo rispetto alla dimensione del canale.}
+
+Lo sviluppo dello strato limite è, come accennato in precedenza, funzione della posizione $x$ e del numero di Reynods $Re_x$ lungo $x$.
+In figura \ref{fig:BoundaryLayer} si mostra la relazione tra i due parametri.
+Ingengeristicamente parlando si assume che il punto critico per il passaggio tra flusso laminare e turbolento viene ipotizzato per $Re_{x_{cr}} = 5*10^5$.
+
+Nella pratica la transizione a flusso turbolento puà avvenire anche a valori minori di $Re_{x_{cr}}$. Ciò è influenzato dalla rugosità delle pareti solide, dalla geometria e particolari gradienti di pressione lungo la superficie.
+Anche nelle simulazioni \ac{CFD} non è facile predire il valore di transizione.
+Eventualmente, vengono inseriti dei dispositivi appositi per sviluppare totalmente il flusso turbolento.
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/BoundaryLayer}
+\caption{Sviluppo dello strato limite in funzione della distanza e del numero di Reynolds}
+\label{fig:BoundaryLayer}
+\end{figure}
+
+\paragraph{Flussi liberi da ostacoli} L'approssimazione dello strato limite può essere applicata a flussi senza ostacoli come getti, scie e flussi misti.
+Infatti garantiscono comunque un numero di Reynolds abbastanza alto da considerare la regione molto fina.
+Le regioni di questi flussi, con viscosità non trascurabile e velocità finite, possono essere considerati come strati limite anche se non è presene una parete solida.
+
+\section{Equazioni dello strato limite}
+Consideriamo un flusso stazionario, incomprimibile planare sopra un corpo.
+Si trascureranno gli effetti della gravità dato che non si sta considerando il caso di flussi liberi da superfici o convezione libera dove la gravità ha effetti considerevoli.
+Considereremo solo strato limite laminare.
+Considerando dei riferimenti locali nello strato limite:
+\begin{itemize}
+\item $x$ è parallela ovunque alla superficie e tipicamente posta a zero nel punto di stagnazione frontale del corpo. 
+\item $y$ è ovunque normale al corpo.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/BoundaryEquation}
+\caption{Riferimento per descrivere le equazioni dello strato limite}
+\label{fig:BoundaryEquation}
+\end{figure}
+
+Nello strato limite, evidenziato nella figura \ref{fig:BoundaryLayer}, la componente velocità $V_y$ è molto più piccola di quella $V_x$.
+$V_x \approx U$ e $V_y \approx U \frac{\delta}{L}$.
+
+La pressione può variare lungo lo strato limite in $x$, ma il cambiamento di pressione lungo $y$ è trascurabile.
+La pressione della regione esterna può essere misurata sperimentalmente da un sensore di pressione statica anche direttamente dentro lo strato limite%
+\footnote{Vedi \href{https://it.wikipedia.org/wiki/Tubo_di_Pitot}{Sonda di Pitot}}.
+
+Allora le equazioni per un flusso statico, incomprimibile, laminare nello strato limite sono:
+\begin{equation}
+\frac{\partial V_x}{\partial x} + \frac{\partial V_y}{\partial y} = 0
+\end{equation}
+Da cui:
+\begin{equation}
+V_x \frac{\partial V_x}{\partial x} + V_y \frac{\partial V_x}{\partial y} =%
+-\frac{1}{\rho} \frac{d p}{dx} + \nu\frac{\partial^2 V_x}{\partial y^2}
+\end{equation}
+Infine:
+\begin{equation}
+-\frac{1}{\rho} \frac{dp}{dx} = U \frac{dU}{dx}
+\end{equation}
