@@ -778,3 +778,98 @@ Infine:
 \begin{equation}
 -\frac{1}{\rho} \frac{dp}{dx} = U \frac{dU}{dx}
 \end{equation}
+
+\subsection{Limiti dell'equazione dello strato limite}
+\begin{itemize}
+\item Nel caso il numero di Reynolds non sia troppo alto, l'approssimazione dello strato limite fallisce.
+\item L'assunzione che il gradiente di pressione lungo $y$ sia nullo (o quasi) non è vero nel caso in cui lo spessore dello strato limite $\delta$ è confrontabile col raggio di curvatura locale $R$. In questo caso l'accelerazione centripeta sulle \eng{streamlines} non può essere ignorata.
+\item Quando il numero di Reynolds è troppo alto, allora il flusso sullo strato limite non può essere più considerato laminare. L'equazione funziona bene solamente per un flusso limite laminare.
+\item In caso di separazione del flusso, l'approssimazione non è appropriata per descrivere il fenomeno nella regione di flusso separata considerato il fatto che in quel caso sono presente dei flussi di ritorno.
+\end{itemize}
+
+Le \eng{streamlines} che stanno all'interno e all'esterno dello strato limite vengono leggermente piegate lontano dalla parete col fine di garantire la conservazione della massa. Allora lo strato limite si inspessisce (esiste una componente $V_y$ piccola e finita). Anche il flusso esterno viene modificato da tali deformazioni.
+Tre definizioni dello spessore dello strato limite sono state trova e attualmente utilizzate per la sua descrizione:
+\begin{enumerate}
+\item Lo sviluppo dello spessore
+\item Il momento dello spessore
+\item L'energia cinetica dello spessore.
+\end{enumerate}
+
+\subsection{Spessore dello strato limite}
+\paragraph{Sviluppo dello spessore}
+Possiamo descrivere lo sviluppo dello spessore attraverso la definizione:
+\graffito{L'integrazione viene presa più grande rispetto a quanto richiederebbe $\delta^*$, siccome non si può conoscere lo spessore a prescindere. Comunque il contributo al integrale nella regione esterna sarebbe nulla o quasi.}
+\begin{equation}
+\delta^* = \int_0^{y'}\left(1-\frac{V_x}{U}\right)\,dy
+\end{equation}
+Allora $\delta^*$ rappresenta la distanza alla quale la parete potrebbe essere spostata in direzione normale, nel caso in cui in un ipotetico flusso uniforme non viscoso a velocità $U$ mantenga la portata nell'attuale flusso viscoso.
+Può essere vista anche come un ostacolo al flusso sulla parete.
+
+\paragraph{Momento dello spessore}
+Definito come:
+\begin{equation}
+\theta = \int_0^{y'}{\frac{V_x}{U}\left(1-\frac{V_x}{U}\right)\,dy}
+\end{equation}
+$\theta$ misura la differenza tra il momento lungo tutto il flusso del flusso attuale e un flusso uniforme avente la velocità $U$ all'infuori dello strato limite.
+Il momento dello spessore è fortemente legato al \eng{drag}.
+
+\paragraph{Energia cinetica dello spessore}
+\begin{equation}
+\theta^* = \int_0^{y'}{\frac{V_x}{U}\left(1-\frac{V_x^2}{U^2}\right)\,dy}
+\end{equation}
+$\theta^*$ rappresenta la differenza tra l'energia cinetica lungo tutto il flusso attuale e quella di un flusso uniforme alla velocità $U$ all'infuori dello strato limite.
+Questa rappresenta le perdine di energia cinetica per le macchine a flusso interno.
+
+Tutti e tre i parametri $\delta^*$, $\theta$ e $\theta^*$ forniscono una misura delle defezioni di massa, momento e energia cinetica attribuite allo strato limite.
+
+\subsection{Strato limite laminare su lastra piana}
+Allora, lo strato limite su una lastra piana è spesso chiamato come \textit{a gradiente di pressione nullo}.
+\textbf{Soluzione di Blasius}:
+\begin{equation}
+\frac{\delta}{x} = \frac{4.91}{\sqrt{Re_x}}
+\end{equation}
+L'approssimazione dello strato limite non è appropriata per gli spigoli della lastra perché $\delta$ non è piccolo a confronto con $x$.
+Inoltre, qualsiasi lastra reale ha uno spessore finito ed è presente un punto di stagnazione sul fronte della lastra.
+Si può ignorare la regione molto prossima a $x=0$ senza perdita di accuratezza per il resto del flusso.
+Inoltre:
+\begin{description}
+\item[Sviluppo dello spessore] 
+\begin{equation}
+\frac{\delta^*}{x} = \frac{1.72}{\sqrt{Re_x}}
+\end{equation}
+\item[Momento dello spessore]
+\begin{equation}
+\frac{\theta}{x} = \frac{0.664}{\sqrt{Re_x}}
+\end{equation}
+\end{description}
+Per il flusso in questione è sempre dimostrato che $\delta^*$ e $\theta$ è approssimativamente si dividono, rispettivamente, $\delta$ come $35.0\%$ e $13.5\%$ in ogni posizione di $x$.
+
+\subsection{Strato limite turbolento su lastra piana}
+Un'importante caratteristica per uno strato limite turbolento è dato dalla differenza tra i diversi strati interni dello strato limite: \eng{Inner layer} e \eng{Outer layer}.
+
+Il profilo di velocità nell'\eng{Inner layer} dipende dalla viscosità, mentre nell'\eng{Outer layer} dipende dagli sforzi di Reynolds.
+Da un'analisi dimensionale, un legame adimensionale per la velocità nell'\eng{Inner layer} è
+\begin{equation}
+\frac{V_x}{u_{\tau}}= f(\frac{y u_{\tau}}{v})
+\end{equation}
+Dove il parametro $u_{\tau}$ detto come velocità di frizione viene usato per normalizzare sia $y$ che $V_x$:
+\begin{equation}
+u_{\tau} = \sqrt{\frac{\tau_W}{\rho}} \qquad \tau_W = \mu\frac{\partial V_x}{\partial y}\Big|_{y=0}
+\end{equation}
+
+Variabili \eng{Inner layer}:
+\begin{equation}
+y^+ = \frac{y u_{\tau}}{v} \qquad u^+ = \frac{V_x}{u_{\tau}}
+\end{equation}
+Nell'\eng{Inner layer}: $u^+ = f(y^+)$.
+La distanza non dimensionale $y^+$ è un tipo di numero di Reynolds.
+
+\begin{figure}
+\centering
+\subfloat[][\emph{Suddivisione dello strato limite}\label{fig:StratoLimite}]
+{\includegraphics[width = \textwidth]{gfx/StratoLimite}}\\
+\subfloat[][\emph{Leggi nello strato limite}\label{fig:LeggiStratoLimite}]
+{\includegraphics[width = \textwidth]{gfx/LeggiStratoLimite}}
+\caption{Strato limite turbolento su lastra piana}
+\label{fig:StratoLimiteTurb}
+\end{figure}
