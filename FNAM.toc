@@ -50,12 +50,17 @@
 \contentsline {paragraph}{Energia cinetica dello spessore}{26}{equation.3.2.6}%
 \contentsline {subsection}{\numberline {3.2.3}Strato limite laminare su lastra piana}{27}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Strato limite turbolento su lastra piana}{27}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Strato limite e gradienti di pressione}{30}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Separazione del flusso}{30}{section.3.3}%
 \contentsline {part}{\numberline {ii}\spacedlowsmallcaps {Aerodinamica}}{31}{part.2}%
-\contentsline {chapter}{\numberline {4}\spacedlowsmallcaps {Aerodinamica di un profilo alare}}{33}{chapter.4}%
-\contentsline {part}{\numberline {iii}\spacedlowsmallcaps {Appendix}}{35}{part.3}%
-\contentsline {chapter}{\numberline {A}\spacedlowsmallcaps {Appendix Test}}{37}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Appendix Section Test}{37}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Another Appendix Section Test}{37}{section.Alph1.2}%
+\contentsline {chapter}{\numberline {4}\spacedlowsmallcaps {Flusso su corpi}}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Coefficienti di drag e lift}{34}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Composizione drag}{34}{subsection.4.1.1}%
+\contentsline {chapter}{\numberline {5}\spacedlowsmallcaps {Aerodinamica di un profilo alare}}{35}{chapter.5}%
+\contentsline {part}{\numberline {iii}\spacedlowsmallcaps {Appendix}}{37}{part.3}%
+\contentsline {chapter}{\numberline {A}\spacedlowsmallcaps {Appendix Test}}{39}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Appendix Section Test}{39}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Another Appendix Section Test}{39}{section.Alph1.2}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\spacedlowsmallcaps {Bibliografia}}{39}{dummy.7}%
+\contentsline {chapter}{\spacedlowsmallcaps {Bibliografia}}{41}{dummy.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

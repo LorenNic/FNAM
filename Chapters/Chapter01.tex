@@ -873,3 +873,72 @@ La distanza non dimensionale $y^+$ è un tipo di numero di Reynolds.
 \caption{Strato limite turbolento su lastra piana}
 \label{fig:StratoLimiteTurb}
 \end{figure}
+
+Come si vede dalla figura \ref{fig:LeggiStratoLimite}, è possibile descrivere il comportamento dello strato limite turbolento attraverso un'unica curva in funzione di $y^+$.
+Allora la suddivisione delle leggi è:
+\begin{description}
+\item[Sottostrato viscoso] dove le forze viscose hanno luogo. Le fluttuazione turbolente sono soppresse per via della vicinanza alla parete. Arriva fino a circa $y^+ \approx 5$
+Si assume 
+\begin{equation}
+u^+ = y^+
+\end{equation}
+\item[Buffer sublayer]
+Spostandosi ulteriormente dalla parete, fino a circa $y^+ \approx 50$, si hanno degli sforzi simili a $\tau_w$ ma non più governati dalla viscosità: ovvero tutti gli sforzi e deformazioni di inerzia. 
+Allora, questi sforzi possono essere definiti come sforzi di Reynolds definiti come:
+\begin{equation}
+\rho \bar{V'_x} \bar{V'_y}
+\end{equation}
+\item[Log-law region] spostandosi ulteriormente all'interno dello strato limite, sempre più lontano da parete, l'andamento del flusso è stato descritto tramite osservazioni empiriche da una legge del tipo:
+\begin{equation}
+u^+ = \frac{1}{\kappa}\ln y^+ + C
+\end{equation}
+Dove:\\
+\begin{tabular}{cl}
+$\kappa$ & rappresenta la costante di Von Karman\\
+$C$ & è una costante in genere $C\approx 0.5$
+\end{tabular}\\
+La legge a parete, si può dimostrare che sia applicabile per quasi tutte le applicazioni a parete, non solo per la lastra piana. L'approssimazione \eng{Log-law} è utilizzata vicino alle pareti nelle analisi \ac{CFD}.
+\end{description}
+Lo strato limite turbolento ha dei gradienti di velocità molto più marcati di quello laminare. Il gradiente di velocità più marcato vicino a parete può essere visto come associato al comportamento della viscosità man mano che ci si sposta dalla parte.
+Nella regione esterna gli effetti della viscosità possono essere di due o più ordini di grandezza più piccoli. Risulta, appunto, che nello strato limite ci siano dei gradienti di velocità più marcati.
+
+\begin{quote}
+\textit{Vicino alla parete il flusso ha una maggior capacità (in confronto ad uno strato limite laminare) di resistere alla separazione in gradienti di pressione avversi perché il momento del fluido sta accelerando per arrivare a quello del fluido indisturbato.}
+\end{quote}
+
+\subsection{Strato limite e gradienti di pressione}
+Bisogna considerare due tipologie di gradiente di pressione:
+\begin{description}
+\item[Gradiente di pressione favorevole] nel flusso non viscido e/o irrotazionale nel \eng{Outer region} accelera: allora aumenta la velocità ma cala la pressione.
+Si preferisce tale situazione perché lo strato limite è fino, aderente a parete e difficilmente separabile da parete.
+\item[Gradiente di pressione sfavorevole] quando il flusso esterno decelera:
+cala la velocità e aumenta il gradiente di pressione.
+Non si preferisce questa situazione in quanto lo strato limite è solitamente più spesso, meno aderente a parete e facilmente si separa.
+\end{description}
+lo strato limite lungo un corpo immerso in un flusso libero è tipicamente soggetto a gradiente favorevole in testa al corpo e a gradiente avverso sul retro del corpo.
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.7\textwidth]{gfx/GradPressione}
+\caption{Esempi di gradienti di pressione favorevoli e sfavorevoli}
+\label{fig:GradPressione}
+\end{figure}
+
+\section{Separazione del flusso}
+Se il gradiente di pressione sfavorevole è sufficientemente forte, lo strato limite è predisposto per separare il flusso dal corpo.
+La figura \ref{fig:Separazione} riporta il processo di separazione del flusso dal corpo.
+
+\begin{figure}
+\centering
+\subfloat[][\emph{Processo di separazione del flusso dal corpo}\label{fig:Separazione}]
+{\includegraphics[width = 0.6\textwidth]{gfx/Separazione}}\quad
+\subfloat[][\emph{Descrizione}\label{def:Separazione}]
+{%
+\begin{minipage}[b]{0.3\textwidth}
+La \eng{streamline} chiusa indica una regione in cui il flusso è in ricircolo,
+viene anche detta \textit{bolla di ricircolo}.
+\end{minipage}%
+}
+\caption{Separazione del flusso dal corpo}
+\label{fig:Separation}
+\end{figure}
