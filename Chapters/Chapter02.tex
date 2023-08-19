@@ -54,6 +54,69 @@ Si può definire:
 \begin{equation}
 F_D = F_{D, \textup{Friction}} + F_{D, \textup{Pressure}} \qquad C_D = C_{D, \textup{Friction}} + C_{D, \textup{Pressure}}
 \end{equation}
+
+La $F_{D,\textup{friction}}$ è una funzione importante legata alla viscosità: aumenta con l'aumentare della viscosità. In particolare , per flussi a basso numero di Reynolds la maggior parte del \eng{drag} è dovuto alla frizione.
+Con l'aumentare del numero di Reynolds il \eng{drag} per effetto della frizione cala.
+$F_{D,\textup{friction}}$ è proporzionale all'area della superficie. 
+$C_{D,\textup{friction}}$ è indipendente dalla rugosità superficiale nel flusso laminare, è fortemente dipendente dalla rugosità superficiale nel caso di flussi turbolenti.
+$F_{D,\textup{pressure}}$ è proporzionale all'area frontale e alle differenze di pressione tra il fronte e il retro del corpo immerso. È dominante per i corpi spuntati risulta piccolo per corpi affusolati come ad esempio i profili alari e nullo nel caso di lastre piane parallele al flusso.
+$F_{D,\textup{pressure}}$ Risulta molto significativo quando la velocità del fluido è molto alta e quest'ultimo è capace di seguire la curvatura del corpo. Perciò il fluido quando si separa dal corpo crea un gradiente di pressione molto basso nel retro del corpo stesso.
+
+\paragraph{Ridurre il drag: affusolando}
+Affusolare un corpo ha degli effetti contrari nel \eng{drag} di pressione e frizione: Riduce il \eng{pressure drag} eliminando la separazione dello strato limite. Mentre aumenta il \eng{friction drag} aumentando l'area della superficie del corpo.
+Infatti, spesso vengono condotti degli studi di ottimizzazione del \eng{drag} per far sì che un corpo immerso in un flusso abbia il minimo della somma dei due componenti.
+Affusolare dovrebbe essere preso in considerazione per corpi spuntati che sono sottoposti a un flusso ad alto numero di Reynolds, per cui la separazione del flusso è una possibilità reale 
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/Affusolamento}
+\caption{Processo di affusolamento di un corpo immerso in un fluido}
+\label{fig:Affusolamento}
+\end{figure}
+
+In letteratura esistono alcune tabelle che mostrano i coefficienti di \eng{drag} per delle geometrie piuttosto semplici.
+Bisogna sempre considerare che oltre alla geometria è molto importante il flusso nella sua composizione, nella velocità e nella sua direzione.
+
+\section{Flusso parallelo ad una lastra piana}
+Per una lastra piana parallela al flusso il coefficiente di \eng{drag} è uguale al coefficiente di \eng{drag} per frizione.
+Il coefficiente di frizione varia lungo tutta la superficie come risultato dei cambiamenti della velocità all'interno dello strato limite nella direzione del flusso.
+I valori del coefficiente di frizione sono molto più alti in un flusso turbolento rispetto a quelli di un flusso laminare; questo è dovuto al fatto che: nel flusso turbolento c'è un maggiore mescolamento rispetto che a quello laminare.
+
+\begin{equation}
+F_D = F_{D,\textup{friction}} = F_f = C_f \rho \frac{V^2}{2}A
+\label{eqn:DragFriction}
+\end{equation}
+
+\begin{figure}
+\centering
+\subfloat[][]
+{%
+\begin{minipage}[b]{0.4\textwidth}
+\textbf{Per un flusso laminare}, il $C_f$ dipende solamente dal numero di Reynolds e la rugosità della superficie non ha effetto.
+\textbf{Per un flusso turbolento}, la rugosità della superficie causa l'incremento considerevole del $C_f$ a tal punto che un regime completamente turbolento è funzione della sola rugosità e non del numero di Reynolds
+\end{minipage}%
+} \quad
+\subfloat[][\emph{$C_f$ in funzione del numero di Reynolds e della rugosità $\epsilon$}\label{fig:Cf}]
+{\includegraphics[width = 0.4\textwidth]{gfx/Cf}}
+\end{figure}
+
+\section{Flusso su una sfera o un cilindro}
+Ipotizzando di considerare una sfera o un cilindro una misura caratteristica di entrambi può essere il diametro $D$.
+Da cui si può considerare il numero di Reynolds 
+\begin{equation}
+Re = \frac{VD}{v}
+\end{equation} 
+Possiamo considerare il fatto che il numero di Reynolds critico sia $Re_{\textup{cr}} \approx 2*10^5$.
+Allora la forza di \eng{drag} sarà inizialmente dovuta alla frizione per numeri di Reynolds bassi. Dopodiché, all'aumentare del numero di Reynolds, inizierà il contributo di entrambe le componenti fino ad arrivare interamente al contributo della sola componente pressoria.
+Il fenomeno può essere descritto in funzione del numero di Reynolds:
+\begin{description}
+\item[$Re < 10^3$]Per numeri di Reynolds estremamente bassi gli effetti dell'inerzia sono trascurabili e il fluido copre totalmente il corpo. Non cè separazione del flusso e il coefficiente di \eng{drag} è inversamente proporzionale al numero di Reynolds. Salendo col numero di Reynolds inizia la separazione del flusso nella parte posteriore del corpo. Mentre, il coefficiente di \eng{drag} continua a decrescere con l'aumento del numero di Reynolds. 
+\item[$10^3 < Re < 10^5$] Per questa velocità il coefficiente di \eng{drag} rimane più o meno costante. Questo comportamento è caratteristico dei corpi spuntati. Il flusso nello strato limite è laminare in questo range, ma il flusso della regione separata, dopo il corpo, è fortemente turbolento con una larga scia vorticosa.
+\item[$Re > 10^5$]Dopo questo pallone limite il coefficiente di \eng{drag} subisce un'improvvisa caduta. Questo è dovuto al fatto che lo strato limite diventa turbolento. Allora il punto di distacco tra lo strato limite e il corpo si sposta sul retro del corp,o riducendo la dimensione della scia e la magnitudo della \eng{drag} di pressione. 
+\end{description} 
+
+Un incremento della rugosità superficiale può diminuire il $C_f$. Ciò è dovuto  alla transizione dello strato limite da valori laminari a quelli turbolenti causando nel flusso posteriore al corpo una riduzione della scia e del \eng{drag} di pressione . 
+
 %*****************************************
 \chapter{Aerodinamica di un profilo alare}\label{ch:Airfoil}
 %*****************************************
