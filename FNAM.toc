@@ -60,10 +60,15 @@
 \contentsline {section}{\numberline {4.2}Flusso parallelo ad una lastra piana}{35}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Flusso su una sfera o un cilindro}{35}{section.4.3}%
 \contentsline {chapter}{\numberline {5}\spacedlowsmallcaps {Aerodinamica di un profilo alare}}{37}{chapter.5}%
-\contentsline {part}{\numberline {iii}\spacedlowsmallcaps {Appendix}}{39}{part.3}%
-\contentsline {chapter}{\numberline {A}\spacedlowsmallcaps {Appendix Test}}{41}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Appendix Section Test}{41}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Another Appendix Section Test}{41}{section.Alph1.2}%
+\contentsline {paragraph}{Flussi semplici: fonte lineare}{37}{equation.5.0.1}%
+\contentsline {paragraph}{Vortice libero}{38}{equation.5.0.5}%
+\contentsline {paragraph}{Circuitazione}{38}{equation.5.0.5}%
+\contentsline {section}{\numberline {5.1}Circuitazione di una fonte lineare e campo di flusso uniforme}{38}{section.5.1}%
+\contentsline {section}{\numberline {5.2}La condizione di Kutta}{39}{section.5.2}%
+\contentsline {part}{\numberline {iii}\spacedlowsmallcaps {Appendix}}{41}{part.3}%
+\contentsline {chapter}{\numberline {A}\spacedlowsmallcaps {Appendix Test}}{43}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Appendix Section Test}{43}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Another Appendix Section Test}{43}{section.Alph1.2}%
 \vspace {\beforebibskip }
-\contentsline {chapter}{\spacedlowsmallcaps {Bibliografia}}{43}{dummy.7}%
+\contentsline {chapter}{\spacedlowsmallcaps {Bibliografia}}{45}{dummy.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

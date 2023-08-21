@@ -120,3 +120,127 @@ Un incremento della rugosità superficiale può diminuire il $C_f$. Ciò è dovu
 %*****************************************
 \chapter{Aerodinamica di un profilo alare}\label{ch:Airfoil}
 %*****************************************
+
+Al fine di risolvere un flusso sopra un profilo alare, si considera il fatto che valga la sovrapposizione degli effetti.
+Così possiamo risolvere attraverso Laplace il flusso, considerando separatamente la funzione velocità potenziale e la \eng{stream function}.
+Per ottenere un flusso più complicato, lo si può considerare come somma di flussi elementari.
+\begin{equation}
+\textup{Flusso uniforme} + \textup{Fonte uscita linee} + \textup{Vortici} = \textup{Flusso complesso}
+\end{equation}
+
+\paragraph{Flussi semplici: fonte lineare}
+Considerando un flusso bidimensionale che emerge da una fonte su un piano $xy$ e disperdendosi in maniera radiale in tutte le direzioni con un rateo di flusso totale per profondità $q \left[\unit{\m^2/s}\right]$.
+Allora le equazioni di conservazione della massa:
+\begin{equation}
+q = (2\pi r)V_r \quad V_r = q/2\pi r \quad V_{\theta} =0
+\end{equation}
+Nell'origine è presente una singolarità matematica per cui la velocità non è definita.
+Viene rappresentato alla figura \ref{fig:LinearSource}.
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/LinearSource}
+\caption{Fonte lineare}
+\label{fig:LinearSource}
+\end{figure}
+
+Allora ne calcoliamo la funzione potenziale:
+\begin{equation}
+V_r = \frac{\partial \phi}{\partial r} \Rightarrow \frac{q}{2\pi r} = \frac{\partial \phi}{\partial r} \Rightarrow \phi = \frac{q}{2\pi}\ln(r) + f(\theta)
+\end{equation}
+\begin{equation}
+V_{\theta} = \frac{1}{r}\frac{\partial \phi}{\partial \theta} \Rightarrow 0 = \frac{1}{r}\frac{df}{d\theta} \Rightarrow \frac{df}{d\theta} = 0
+\end{equation}
+Ne risulta che $f$ è costante.
+Dunque:
+\begin{equation}
+\phi = \left(\frac{q}{2\pi}\right)\ln(r)
+\end{equation}
+
+\paragraph{Vortice libero}
+Il concetto di vortice libero è già stato introdotto al capitolo \ref{chp:RotIrrotFlow} a pagina \pageref{chp:RotIrrotFlow}.
+
+Importante ricordare che la vorticità di un vortice libero è sempre nulla ad eccezione dell'origine che è una singolarità matematica.
+
+\paragraph{Circuitazione}
+La forza di un vortice non è misurata dalla costante $K$ che definisce la funzione del vortice \eqref{eqn:FreeVortex} a pagina \pageref{eqn:FreeVortex}, bensì la sua circuitazione $\Gamma$.
+La circuitazione è la linea integrale della componente tangenziale del vettore velocità attorno ad una curva chiusa. Viene relazionata con la rotazionalità del flusso.
+
+\begin{figure}
+\centering
+\subfloat[][\emph{Parametri dell'integrale di circuitazione}\label{fig:Circuitazione}]
+{\includegraphics[width = 0.4\textwidth]{gfx/Circuitazione}}\quad
+\subfloat[][\emph{Definizione circuitazione}\label{def:Circuitazione}]
+{%
+\begin{minipage}[b]{0.4\textwidth}
+\begin{equation}
+\Gamma = \oint_C \vec{V} \,d\vec{s} \quad \left[m^2/s\right]
+\label{eqn:Circuitazione}
+\end{equation}
+Dove:\\
+\begin{tabular}{cp{0.9\textwidth}}
+$C$ & rappresenta la linea in cui viene calcolata la circuitazione\\
+$\vec{s}$ & vettore differenziale lungo il percorso di integrazione
+\end{tabular}\\
+\end{minipage}%
+}
+\caption{Descrizione della circuitazione su una curva immersa in un campo}
+\end{figure}
+
+Vortici irrotazionali sono irrotazionali ovunque ad eccezione dell'origine. Tutta la circuitazione è concentrata all'interno dell'origine. Infatti, è un punto singolare.
+
+Allora, la circuitazione per il vortice libero risulta essere:
+\begin{equation}
+\Gamma = 2\pi K
+\label{eqn:CircFreeVortex}
+\end{equation}
+
+\section{Circuitazione di una fonte lineare e campo di flusso uniforme}
+Una fonte puntuale ha circuitazione nulla su qualsiasi circuito.
+La proprietà di circuitazione nulla di una fonte planare, ha importanti conseguenze nella rappresentazione del flusso.
+Qualsiasi modello aerodinamico consiste nella combinazione di un campo di flusso uniforme e una fonte planare che abbia $\Gamma = 0$.
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/ComboFlussoFonte}
+\caption{Combinazione tra flusso uniforme e fonte planare}
+\label{fig:ComboFlussoFonte}
+\end{figure}
+
+\section{La condizione di Kutta}
+Doppiette in presenza di un flusso uniforme:
+\begin{enumerate}
+\item Prendiamo il caso più semplice di doppietta fonte-pozzo con flusso uniforme nullo: \ref{def:FontePozzo}.
+Entrambi agenti sull'origine
+\item Complicando ulteriormente, aggiungiamo un flusso a velocità uniforme.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\subfloat[][\emph{Fonte-pozzo flusso nullo}\label{fig:FontePozzo}]
+{\includegraphics[width = 0.4\textwidth]{gfx/FontePozzo}} \quad
+\subfloat[][\emph{Ipotesi}\label{hyp:FontePozzo}]
+{%
+\begin{minipage}[b]{0.4\textwidth}
+\begin{itemize}
+\item una fonte di portata $q$ sull'origine.
+\item un pozzo di portata $q$ sull'origine.
+\end{itemize}
+\end{minipage}%
+}\\
+\subfloat[][\emph{Fonte-pozzo e flusso a velocità uniforme}\label{fig:FontePozzoStream}]
+{\includegraphics[width = 0.4\textwidth]{gfx/FontePozzoStream}}\quad
+\subfloat[][\emph{Ipotesi}\label{hyp:FontePozzoStream}]
+{%
+\begin{minipage}[b]{0.4\textwidth}
+\begin{itemize}
+\item una doppietta di portata $d$ sull'origine.
+\item flusso a magnitudo costante $U$ in direzione positiva
+\end{itemize}
+\end{minipage}%
+}
+\caption{Fonte-Pozzo}\label{def:FontePozzo}
+\end{figure}
+
+Ne risulta un comportamento simile a quello del caso della sfera liscia immersa nel fluido a velocità costante.
+Si genera una \eng{streamline} nulla detta \eng{stagnation stream line}.
