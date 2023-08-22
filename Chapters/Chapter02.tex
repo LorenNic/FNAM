@@ -244,3 +244,208 @@ Entrambi agenti sull'origine
 
 Ne risulta un comportamento simile a quello del caso della sfera liscia immersa nel fluido a velocità costante.
 Si genera una \eng{streamline} nulla detta \eng{stagnation stream line}.
+
+Come si è visto precedentemente, dalla teoria il flusso potenziale prevede forza di \eng{drag} nulla sul cilindro.
+Ciò è vero per un qualsiasi corpo indipendentemente dalla sua forma.
+Questo risultato non è fisicamente possibile, infatti viene definito come paradosso di d'Alembert.
+
+In flusso viscoso reale:
+\begin{itemize}
+\item Lo sforzo di taglio all'interno dello strato limite causa il \eng{drag} di frizione.
+\item Le azioni viscose possono causare separazione e la pressione sul fronte e retro del cilindro non simmetriche. 
+\end{itemize}
+
+Imponendo una doppietta in un flusso uniforme e una certa circolazione sull'origine, si ha un cambiamento del campo di flusso, come descritto dalle figure \ref{fig:FlowFieldChange}.
+
+\begin{figure}\centering
+\includegraphics[width = 0.7\textwidth]{gfx/FlowFieldChange}
+\caption{Circuitazione per diverse condizioni di flusso}
+\label{fig:FlowFieldChange}
+\end{figure}
+
+In parole povere, nel caso di si consideri una doppietta senza circuitazione, si avrebbe un campo di moto fasullo.
+
+\paragraph{Condizione di Kutta}
+Considerando un flusso sopra un corpo affusolato con una coda appuntita questo è considerabile come un profilo alare.
+Un profilo alare è disegnato per generare poco \eng{drag} e tanto \eng{lift}.
+
+Su un profilo alare, sono presenti due punti di stagnazione.
+Sperimentalmente si dimostra che le \eng{streamlines} che lasciano la coda del corpo sinuosamente come mostrato in figura.
+Questa è detta \textbf{Condizione di Kutta}.
+
+Questa limitazione è illustrata se si usano due fonti planari per modellare un flusso che produca \eng{lift}, per esempio un profilo alare ad un dato angolo d'attacco.
+L'analisi mostra che le \eng{streamlines} sul retro del corpo lasciano il profilo come in figura 
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/NoKutta}
+\caption{Dimostrazione delle \eng{streamlines} senza la condizione di Kutta}
+\label{fig:NoKutta}
+\end{figure} 
+
+Nei profili reali, il flusso lascia il corpo in una scia continua nella zona posteriore del corpo. Senza gradienti locali di velocità. Questo modo è la condizione di Kutta e deve essere sempre replicata in qualsiasi modello di flusso per il calcolo del \eng{lift}.
+Per cambiare il percorso delle \eng{streamlines} deve essere inclusa una circuitazione, che implica che i vortici devono essere inclusi nella rappresentazione del flusso in qualche maniera.
+
+Il flusso a potenziale ideale prevede una regione non fisica sul punto di stagnazione $S_2$.
+È impossibile per le \eng{streamline} per realizzare una scia al bordo del corpo.
+
+Se si aggiunge un corretto ammontare di vortice nel flusso, si può portare il punto $S_2$ sul bordo e ottenere il corretto andamento delle \eng{streamlines}.
+
+La magnitudo corretta della circuitazione può essere usata per calcolare la forza di \eng{lift} per il profilo alare.
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/AggiuntaCircuitazione}
+\caption{Aggiunta della condizione di Kutta per aderire alla realtà}
+\label{fig:AggiuntaKutta}
+\end{figure}
+
+\section{Teorema Kutta-Joukowski}
+\graffito{Applicato nel caso di un profilo alare isolato}
+Osserveremo il comportamento del flusso attorno ad un profilo, che comincia il suo movimento quando è stazionario.
+Al cominciare del moto, l'effetto della viscosità sono ancora forti e il movimento è irrotazionale. Attorno il profilo la circuitazione è nulla e anche il \eng{lift} è nullo.
+Esistono due punti di stagnazione $A$ e $B$, non necessariamente coincidenti su $F$ e $T$ che sono i punti di della corda dell'ala.
+Un flusso gassoso facilmente passa attorno a questi estremi, velocemente tanto quanto il raggio locale più piccolo a questi estremi, questo ricircolo è riconoscibile attorno al \eng{trailing-edge} dove gli effetti della viscosità cessano.
+Questi effetti consistono in una riduzione locale della velocità e un distaccamento del vortice (orientato in maniera antioraria).
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.5\textwidth]{gfx/ParamKuttaJoukowski}
+\caption{Parametri per il teorema Kutta-Joukowski}
+\label{fig:ParamKuttaJoukowski}
+\end{figure}
+
+Consideriamo ora il circuito $ABCDEA$, è un circuito in cui la circuitazione zero è e zero rimane.
+Siccome è stata aggiunta una circuitazione sul circuito $AFDCBA$ positiva in tale percorso.
+Alla figura \ref{fig:KuttaJoukowski} sono rappresentati i percorsi.
+Il flusso diventa stazionario quando il punto $B$ viene postato sul punto $T$(\eng{trailing-edge}) della figura \ref{fig:ParamKuttaJoukowski} impedendo la formazione di velocità infinita quando il vortice si stacca dal \eng{trailing-edge}, muovendosi concorde al flusso.
+La viscosità causa la circuitazione $\Gamma$ attorno al profilo per acquisire, per ogni incidenza $\alpha$, una ben determinata $\Gamma(\alpha)$: resta chiaro che il bordo debba essere arrotondato per evitare flussi di ricircolo.
+La condizione per cui il \eng{trailing-edge} è nullo, al più limitato, è chiamata \textbf{condizione di Kutta-Joukowski}.
+Il comportamento del profilo alare in una corrente viscosa può essere approssimata come il comportamento di una corrente non viscosa con inclusa la condizione di Kutta-Joukowski.
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.5\textwidth]{gfx/KuttaJoukowski}
+\caption{Percorsi per la condizioni Kutta-Joukowski}
+\label{fig:KuttaJoukowski}
+\end{figure} 
+
+Il teorema Kutta-Joukowski è fondamentale in aerodinamica, usato per calcolare il \eng{lift} di un profilo alare.
+Il teorema relaziona il \eng{lift} generato in presenza di un profilo alare alla velocità del profilo attraverso il fluido, la densità del fluido e la circuitazione attorno al profilo.
+Il teorema relaziona \eng{lift} alla circuitazione. Il flusso del fluido alla presenza del profilo può essere considerato come sovrapposizione di un flusso traslatorio e uno rotazionale.
+Il flusso rotazionale è indotto dagli effetti di \eng{camber}, angolo di attacco e l'affusolamento del \eng{trailing-edge} del profilo.
+
+\subsection{Dimostrazione}
+Per determinare la relazione tra la circuitazione $\Gamma$ e il \eng{lift} $L$ per un profilo alare isolato: si considerano una serie di infiniti profili a infinita lunghezza.
+Le caratteristiche del flusso: $\rho = cost.$ stazionario e irrotazionale.
+Per una porzione $b$ di un'ala , una superifcie di controllo è definita in accordo a due \eng{stramlines} (suprficie) intermedia tra i profili e \eng{inlet} e \eng{outlet} locati distandi dalla schiera con una superficie di controllo, rispettivamente, $A_1$ e $A_2$.
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/KuttaJoukowskiDemo}
+\caption{Dimostrazione del teorema Kutta-Joukowski}
+\label{fig:KuttaJoukowskiDemo}
+\end{figure}
+
+Conservazione della massa:
+\begin{equation}
+M = \rho v_1 A_1 = \rho v_2 A_2
+\end{equation}
+dove $v$ è la componente di velocità lungo $y$.
+\begin{equation}
+A_1 = A_2 \; \rho = const. \Rightarrow v_1 = v_2 = v
+\end{equation}
+Momento in $x$:
+\begin{equation}
+\sum{F_x} = \int_{A_u}{V_x \underbrace{\rho V_n}_{\textup{Portata in massa}}\,dA_u} - \int_{A_i}{V_x \rho V_n \,dA_i}
+\end{equation}
+Nella direzione $x$ la forza generata per effetto della pressione è nulla.
+\begin{equation}
+- F_x + \rho v t b(u_2-u_1)
+\end{equation}
+Con $u$ componente della velocità lungo $x$.
+
+Momento in $y$:
+\begin{equation}
+\sum{F_y} = \int_{A_u}{V_y \rho V_n\,dA_u} - \int_{A_i}{V_y \rho V_n\,dA_i}
+\end{equation}
+Nella direzione $y$ la forza generata dalla pressione non è nulla.
+\begin{equation}
+F_y = \rho t b (v_2^2 - v_i^2) + tb (p_1 - p_2)
+\end{equation}
+La conservazione della massa impone che la velocità sia uguale ovunque e sempre pari a $v$.
+\begin{equation}
+\begin{split}
+F_y &= tb(p_1 - p_2)\\
+p_1 - p_2 &= \frac{\rho}{2}(u_2^2+u_1^2)\\
+\end{split}
+\end{equation}
+Da cui ne deriva:
+\begin{equation}
+\frac{p_1}{\rho} + \frac{v_1^2 + u_1^2}{2} = \frac{p_2}{\rho}+\frac{v_2^2 + u_2^2}{2}
+\end{equation}
+
+Per il bilancio energetico:
+\begin{equation}
+\frac{p_1}{\rho} + \frac{v_1^2 + u_1^2}{2} = \frac{p_2}{\rho}+\frac{v_2^2 + u_2^2}{2}
+\end{equation}
+Considerando la conservazione della massa 
+\begin{equation}
+p_1 - p_2 = \frac{\rho}{2}(u_2^2 + u_1^2)
+\end{equation}
+Considerando il binomio matematico:
+\begin{equation}
+F_y + \frac{\rho}{2} t b (u_2 + u_1)(u_2 - u_1)
+\end{equation}
+
+Come dimostrato la circuitazione $\Gamma$ non è nulla, può essere dimostrato che:
+\begin{equation}
+\begin{split}
+&\oint_C{V\cos(\alpha)\,dl}\\
+\Gamma &= t(u_2 - u_1) \quad \textup{da cui:}\\
+F_x &= -\rho bv\Gamma\\
+F_y &= \rho b\Gamma \frac{u_2 + u_1}{2}
+\end{split}
+\end{equation}
+Quando  $t \rightarrow \infty$ allora $u_2 - u_1 \rightarrow 0$ dunque $u_2 = u_1$.
+Questo indica che per un profilo isolato $V_1 = V_{\infty}$ ovvero alla velocità del flusso indisturbata.
+Resta che $u_2 = u_1 \, ,v_1 = v_2$ per ciò $V_1 = V_2 = V_{\infty}$.
+
+Se la velocità coincide con la direzione $y$ la velocità diventa:
+\begin{equation}
+u_2 = u_1 = 0 \quad v = V_{\infty}
+\end{equation}
+Resta dimostrato che la forza in $y$ è nulla e la componente $x$ è il \eng{lift}.
+\begin{equation}
+L = \rho b \Gamma V_{\infty}
+\end{equation}
+Questa è la forza di \eng{lift} basata sulla circuitazione con l'ipotesi di Kutta-Joukowski.
+
+\begin{equation}
+\Gamma = \frac{1}{2} C_L V_{\infty} c
+\end{equation}
+
+La forza di \eng{lift} può essere spiegata assumendo una circuitazione non nulla del profilo isolato. Per preservare la condizione di irrotazionalità, una circuitazione contro rotante aggiunta nella scia del corpo è necessaria per mantenere il flusso irrotazionale lontano dal profilo. Ciò viene evidenziato alla figura \ref{fig:CircuitazioneKutta}.
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{gfx/CircuitazioneKutta}
+\caption{Circuitazione per mantenere la condizione di irrotazionalità}
+\label{fig:CircuitazioneKutta}
+\end{figure}
+
+la soluzione al flusso potenziale per un cilindro è analitica e ben nota.
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.7\textwidth]{gfx/KuttaCilindro}
+\caption{Risoluzione Flusso di un cilindro secondo Kutta}
+\label{fig:KuttaCilindro}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width = 0.7\textwidth]{gfx/AngleAttack}
+\caption{Flusso con angolo di attacco $\alpha$ non nullo}
+\label{fig:AngleAttack}
+\end{figure}

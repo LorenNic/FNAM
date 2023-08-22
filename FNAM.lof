@@ -2,27 +2,36 @@
 \deactivateaddvspace 
 \babel@toc {italian}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Esempi dei modelli di Lagrange ed Eulero}}{4}{figure.caption.7}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Esempio dell'ugello della canna dell'acqua}}{5}{figure.caption.8}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Rappresentazione delle \foreignlanguage {american}{\em streamlines}}}{6}{figure.caption.9}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Osservazione dove l'equazione di Eulero è valida e non.}}{10}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Esempi dei modelli di Lagrange ed Eulero\relax }}{4}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Esempio dell'ugello della canna dell'acqua\relax }}{5}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Rappresentazione delle \foreignlanguage {american}{\em streamlines}\relax }}{6}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Osservazione dove l'equazione di Eulero è valida e non.\relax }}{10}{figure.caption.10}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Procedimento per la risoluzione di un flusso irrotazionale}}{19}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Effetti di variazioni successive della geometria per un flusso vorticoso in un bruciatore}}{21}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Esempio di misure dei vortici per un bruciatore}}{21}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Procedimento per la risoluzione di un flusso irrotazionale\relax }}{19}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Effetti di variazioni successive della geometria per un flusso vorticoso in un bruciatore\relax }}{21}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esempio di misure dei vortici per un bruciatore\relax }}{21}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Sviluppo dello strato limite in funzione della distanza e del numero di Reynolds}}{24}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Riferimento per descrivere le equazioni dello strato limite}}{25}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Strato limite turbolento su lastra piana}}{29}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempi di gradienti di pressione favorevoli e sfavorevoli}}{30}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Separazione del flusso dal corpo}}{30}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Sviluppo dello strato limite in funzione della distanza e del numero di Reynolds\relax }}{24}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Riferimento per descrivere le equazioni dello strato limite\relax }}{25}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Strato limite turbolento su lastra piana\relax }}{29}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempi di gradienti di pressione favorevoli e sfavorevoli\relax }}{30}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Separazione del flusso dal corpo\relax }}{30}{figure.caption.19}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Scomposizione delle forze su un profilo alare in \foreignlanguage {american}{\em drag} e \foreignlanguage {american}{\em lift}}}{33}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Processo di affusolamento di un corpo immerso in un fluido}}{35}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Scomposizione delle forze su un profilo alare in \foreignlanguage {american}{\em drag} e \foreignlanguage {american}{\em lift}\relax }}{33}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Processo di affusolamento di un corpo immerso in un fluido\relax }}{35}{figure.caption.21}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Fonte lineare}}{37}{figure.caption.23}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Descrizione della circuitazione su una curva immersa in un campo}}{38}{figure.caption.24}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Combinazione tra flusso uniforme e fonte planare}}{39}{figure.caption.25}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Fonte-Pozzo}}{39}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Fonte lineare\relax }}{37}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Descrizione della circuitazione su una curva immersa in un campo\relax }}{38}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Combinazione tra flusso uniforme e fonte planare\relax }}{39}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Fonte-Pozzo\relax }}{39}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Circuitazione per diverse condizioni di flusso\relax }}{40}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Dimostrazione delle \foreignlanguage {american}{\em streamlines} senza la condizione di Kutta\relax }}{40}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Aggiunta della condizione di Kutta per aderire alla realtà\relax }}{41}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Parametri per il teorema Kutta-Joukowski\relax }}{41}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Percorsi per la condizioni Kutta-Joukowski\relax }}{42}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Dimostrazione del teorema Kutta-Joukowski\relax }}{43}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Circuitazione per mantenere la condizione di irrotazionalità\relax }}{45}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Risoluzione Flusso di un cilindro secondo Kutta\relax }}{45}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Flusso con angolo di attacco $\alpha $ non nullo\relax }}{45}{figure.caption.35}%
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
